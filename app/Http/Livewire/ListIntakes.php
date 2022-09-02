@@ -13,8 +13,11 @@ class ListIntakes extends Component
     public function render()
     {
         $intakes = Intake::all();
+
         $intakesOfUser = Auth::user()->intakes;
-        $this->intakes = $intakes->diff($intakesOfUser);
+        $intakesNotBelongsToUser = $intakes->diff($intakesOfUser)->pluck('id');
+
+        $this->intakes = Intake::whereIn('id', $intakesNotBelongsToUser)->with(['course', 'batch'])->get();
 
         return view('livewire.list-intakes');
     }

@@ -22,7 +22,7 @@ class IntakeResource extends Resource
 
     protected static ?string $navigationGroup = 'Training';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-code';
 
     public static function form(Form $form): Form
     {

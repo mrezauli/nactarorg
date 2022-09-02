@@ -2,10 +2,12 @@
 
 namespace App\Actions\Fortify;
 
-use App\Events\MakeThisUserAsTrainee;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
+use App\Events\MakeThisUserAsTrainee;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
@@ -35,6 +37,8 @@ class CreateNewUser implements CreatesNewUsers
         ]);
 
         $user->assignRole('Trainee');
+
+        Auth::login($user, true);
 
         MakeThisUserAsTrainee::dispatch($user);
 

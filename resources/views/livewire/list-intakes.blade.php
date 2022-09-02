@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="overflow-hidden sm:rounded-lg"> <!--bg-white shadow-xl-->
                 <div class="bg-gray-200 bg-opacity-25 grid gap-4 grid-cols-1 md:grid-cols-2">
                     @forelse ($intakes as $intake)
                         <div
@@ -16,7 +16,7 @@
                                     {{ $intake->code }}</h5>
 
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                {{ $intake->course_id }}, {{ $intake->batch_id }}</p>
+                                {{ $intake->course->name }}, {{ $intake->batch->serial }}</p>
                             <x-link href="{{ route('view-intake', $intake->id) }}" class="mt-3">Details</x-link>
                         </div>
 

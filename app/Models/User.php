@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -31,9 +32,9 @@ class User extends Authenticatable implements FilamentUser
     {
         if ($this->hasRole('Admin')) {
             return true;
-        }elseif ($this->hasRole('Employee')) {
+        } elseif ($this->hasRole('Employee')) {
             return true;
-        }elseif ($this->hasRole('super_admin')) {
+        } elseif ($this->hasRole('super_admin')) {
             return true;
         } else {
             return false;
@@ -50,7 +51,9 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'contact',
-        'type'
+        'type',
+        'remember_token',
+        'laboratory_id'
     ];
 
     /**
@@ -92,4 +95,5 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->belongsToMany(Intake::class);
     }
+
 }

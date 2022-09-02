@@ -2,7 +2,7 @@
     {{-- Do your work, then step back. --}}
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('View Intake') }}
+            {{ __('Enrolled Intake') }}
         </h2>
     </x-slot>
 
@@ -17,15 +17,6 @@
                     <div class="mt-6 text-gray-500">
                         {{ $intake->batch->serial }}, {{ $intake->course->name }}
                     </div>
-
-                    <form wire:submit.prevent="enroll">
-                        <x-jet-button type="submit" class="mt-3">Enroll</x-jet-button>
-                        @if (session()->has('message'))
-                            <div class="mb-4 font-medium text-lg text-green-600">
-                                {{ session('message') }}
-                            </div>
-                        @endif
-                    </form>
                 </div>
             </div>
         </div>

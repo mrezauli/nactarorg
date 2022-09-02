@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Livewire\EmployeeRegistration;
+use App\Http\Livewire\Modal;
 use App\Http\Livewire\ViewIntake;
 use App\Http\Livewire\ListIntakes;
-use App\Http\Livewire\ListIntakesOfUser;
-use App\Http\Livewire\Modal;
+use App\Http\Livewire\EnrolledIntake;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\ListIntakesOfUser;
+use App\Http\Livewire\EmployeeRegistration;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,5 @@ Route::middleware([
     Route::get('/list-intakes', ListIntakes::class)->name('list-intakes');
     Route::get('/list-intakes-of-user', ListIntakesOfUser::class)->name('list-intakes-of-user');
     Route::get('/view-intake/{intake}', ViewIntake::class)->name('view-intake');
+    Route::get('/enrolled-intake/{intake}', EnrolledIntake::class)->name('enrolled-intake');
 });

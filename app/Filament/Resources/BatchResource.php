@@ -21,10 +21,10 @@ use App\Filament\Resources\BatchResource\RelationManagers;
 class BatchResource extends Resource
 {
     protected static ?string $model = Batch::class;
-    
+
     protected static ?string $navigationGroup = 'Training';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
 
     public static function form(Form $form): Form
     {
