@@ -77,8 +77,6 @@ class ComputersRelationManager extends RelationManager
                 Tables\Filters\TrashedFilter::make()
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

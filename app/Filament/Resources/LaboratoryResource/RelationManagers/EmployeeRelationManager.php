@@ -58,10 +58,7 @@ class EmployeeRelationManager extends RelationManager
             ->filters([
                 Tables\Filters\TrashedFilter::make()
             ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AssociateAction::make(),
-            ])
+            ->headerActions([])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),

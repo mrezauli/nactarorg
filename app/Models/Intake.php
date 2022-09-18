@@ -37,12 +37,13 @@ class Intake extends Model
     }
 
     /**
-     * The users that belong to the Intake
+     * The trainees that belong to the Intake
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users(): BelongsToMany
+    public function trainees(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
+        //dd($this->belongsToMany(Trainee::class));
+        return $this->belongsToMany(Trainee::class);
     }
 }

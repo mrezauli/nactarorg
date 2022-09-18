@@ -6,6 +6,7 @@ use Filament\Forms;
 use Filament\Tables;
 use App\Models\Laboratory;
 use Illuminate\Support\Str;
+use App\Models\VgaConverter;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
@@ -17,9 +18,16 @@ use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\LaboratoryResource\Pages;
+use Filament\Resources\RelationManagers\RelationGroup;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\HddsRelationManager;
 use App\Filament\Resources\LaboratoryResource\RelationManagers\EmployeeRelationManager;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\PrintersRelationManager;
 use App\Filament\Resources\LaboratoryResource\RelationManagers\ComputersRelationManager;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\UsbcablesRelationManager;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\ProjectorsRelationManager;
 use App\Filament\Resources\LaboratoryResource\RelationManagers\AccessoriesRelationManager;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\GraphicstabsRelationManager;
+use App\Filament\Resources\LaboratoryResource\RelationManagers\VgaconvertersRelationManager;
 
 class LaboratoryResource extends Resource
 {
@@ -67,10 +75,16 @@ class LaboratoryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
-            ComputersRelationManager::class,
-            AccessoriesRelationManager::class,
             EmployeeRelationManager::class,
+            RelationGroup::make('Devices', [
+                ComputersRelationManager::class,
+                GraphicstabsRelationManager::class,
+                HddsRelationManager::class,
+                PrintersRelationManager::class,
+                ProjectorsRelationManager::class,
+                UsbcablesRelationManager::class,
+                VgaconvertersRelationManager::class,
+            ]),
         ];
     }
 

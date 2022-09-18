@@ -19,7 +19,7 @@ class AdminResource extends Resource
 
     protected static ?string $navigationGroup = 'Users';
 
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -33,14 +33,11 @@ class AdminResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('contact'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-            ]);
+            ->actions([]);
     }
 
     public static function getRelations(): array

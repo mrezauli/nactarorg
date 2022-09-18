@@ -20,7 +20,7 @@ class EmployeeResource extends Resource
 
     protected static ?string $navigationGroup = 'Users';
 
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -35,11 +35,6 @@ class EmployeeResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->disabled(),
-                Forms\Components\TextInput::make('contact')
-                    ->disabled(),
-                Forms\Components\TextInput::make('type')
-                    ->maxLength(255)
-                    ->disabled(),
                 Select::make('laboratory_id')
                     ->relationship('laboratory', 'number'),
             ]);
@@ -51,9 +46,7 @@ class EmployeeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('contact'),
-                Tables\Columns\TextColumn::make('type'),
-                Tables\Columns\TextColumn::make('laboratory.serial'),
+                Tables\Columns\TextColumn::make('laboratory.number'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

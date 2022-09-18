@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\IntakeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\IntakeResource\RelationManagers;
+use App\Filament\Resources\IntakeResource\RelationManagers\TraineesRelationManager;
 
 class IntakeResource extends Resource
 {
@@ -67,7 +68,7 @@ class IntakeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TraineesRelationManager::class
         ];
     }
 

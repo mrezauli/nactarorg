@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TraineeResource\Pages;
 use App\Filament\Resources\TraineeResource\RelationManagers;
+use App\Filament\Resources\TraineeResource\RelationManagers\IntakesRelationManager;
 use App\Models\Trainee;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -19,7 +20,7 @@ class TraineeResource extends Resource
 
     protected static ?string $navigationGroup = 'Users';
 
-    protected static ?string $navigationIcon = 'heroicon-s-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -38,15 +39,13 @@ class TraineeResource extends Resource
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-            ]);
+            ->actions([]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            IntakesRelationManager::class
         ];
     }
 

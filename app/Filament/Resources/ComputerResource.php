@@ -50,6 +50,9 @@ class ComputerResource extends Resource
                 Forms\Components\TextInput::make('model')
                     ->required()
                     ->maxLength(50),
+                Forms\Components\TextInput::make('sku')
+                    ->required()
+                    ->maxLength(50),
                 Forms\Components\TextInput::make('cpu')
                     ->required()
                     ->maxLength(50),

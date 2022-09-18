@@ -14,8 +14,7 @@ class Computer extends Model
     use HasFactory, SoftDeletes;
     use Userstamps;
 
-    //protected $fillable = ['laboratory_id', 'slug', 'name', 'brand', 'model', 'cpu', 'ram', 'hdd', 'sale', 'number', 'warranty'];
-    protected $fillable = ['laboratory_id', 'slug', 'name', 'brand', 'model', 'cpu', 'ram', 'hdd', 'sale', 'number', 'warranty'];
+    protected $fillable = ['laboratory_id', 'slug', 'name', 'brand', 'model', 'cpu', 'ram', 'hdd', 'sale', 'sku', 'number', 'warranty'];
 
     /**
      * Get the laboratory that owns the Computer

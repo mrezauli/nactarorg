@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Trainee;
 use Parental\HasChildren;
 use Laravel\Sanctum\HasApiTokens;
 use Wildside\Userstamps\Userstamps;
@@ -11,7 +12,6 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -86,6 +86,10 @@ class User extends Authenticatable implements FilamentUser
         'profile_photo_url',
     ];
 
+    protected $childTypes = [
+        'trainee' => Trainee::class,
+    ];
+
     /**
      * The intakes that belong to the User
      *
@@ -95,5 +99,4 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->belongsToMany(Intake::class);
     }
-
 }

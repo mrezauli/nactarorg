@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('ram', 50);
             $table->string('hdd', 50);
             $table->string('sale', 50);
+            $table->string('sku', 50);
             $table->integer('number');
             $table->date('warranty');
             $table->foreignIdFor(Laboratory::class)->nullable();
