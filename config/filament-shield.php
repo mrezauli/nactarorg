@@ -16,11 +16,6 @@ return [
         'name'  => 'super_admin'
     ],
 
-    'admin' => [
-        'enabled' => true,
-        'name' => 'admin'
-    ],
-
     'filament_user' => [
         'enabled' => false,
         'name' => 'filament_user'

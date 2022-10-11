@@ -29,23 +29,23 @@ class Laboratory extends Model
     }
 
     /**
-     * Get all of the graphicstabs for the Laboratory
+     * Get all of the Digitizers for the Laboratory
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function graphicstabs(): HasMany
+    public function Digitizers(): HasMany
     {
-        return $this->hasMany(GraphicsTab::class);
+        return $this->hasMany(Digitizer::class);
     }
 
     /**
-     * Get all of the hdds for the Laboratory
+     * Get all of the Storages for the Laboratory
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function hdds(): HasMany
+    public function Storages(): HasMany
     {
-        return $this->hasMany(Hdd::class);
+        return $this->hasMany(Storage::class);
     }
 
     /**
@@ -69,23 +69,23 @@ class Laboratory extends Model
     }
 
     /**
-     * Get all of the usbcables for the Laboratory
+     * Get all of the Cables for the Laboratory
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function usbcables(): HasMany
+    public function Cables(): HasMany
     {
-        return $this->hasMany(UsbCable::class);
+        return $this->hasMany(Cable::class);
     }
 
     /**
-     * Get all of the vgaconverters for the Laboratory
+     * Get all of the Converters for the Laboratory
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function vgaconverters(): HasMany
+    public function Converters(): HasMany
     {
-        return $this->hasMany(VgaConverter::class);
+        return $this->hasMany(Converter::class);
     }
 
 

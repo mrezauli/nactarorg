@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Batch;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BatchPolicy
@@ -24,9 +25,10 @@ class BatchPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Batch $batch)
     {
         return $user->can('view_batch');
     }
@@ -46,9 +48,10 @@ class BatchPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user)
+    public function update(User $user, Batch $batch)
     {
         return $user->can('update_batch');
     }
@@ -57,9 +60,10 @@ class BatchPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user)
+    public function delete(User $user, Batch $batch)
     {
         return $user->can('delete_batch');
     }
@@ -79,9 +83,10 @@ class BatchPolicy
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Batch $batch)
     {
         return $user->can('force_delete_batch');
     }
@@ -101,9 +106,10 @@ class BatchPolicy
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user)
+    public function restore(User $user, Batch $batch)
     {
         return $user->can('restore_batch');
     }
@@ -123,9 +129,10 @@ class BatchPolicy
      * Determine whether the user can bulk restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Batch  $batch
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user)
+    public function replicate(User $user, Batch $batch)
     {
         return $user->can('replicate_batch');
     }

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Faker\Core\Blood;
+use App\Models\Booking;
 use App\Models\Trainee;
 use Parental\HasChildren;
 use Laravel\Sanctum\HasApiTokens;
@@ -12,6 +14,8 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -25,7 +29,6 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasChildren;
-    use Userstamps;
     use HasRoles;
 
     public function canAccessFilament(): bool
@@ -41,6 +44,8 @@ class User extends Authenticatable implements FilamentUser
         }
     }
 
+    protected $guard_name = 'web';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -53,7 +58,8 @@ class User extends Authenticatable implements FilamentUser
         'contact',
         'type',
         'remember_token',
-        'laboratory_id'
+        'laboratory_id',
+        'name_in_bangla'
     ];
 
     /**
@@ -86,10 +92,6 @@ class User extends Authenticatable implements FilamentUser
         'profile_photo_url',
     ];
 
-    protected $childTypes = [
-        'trainee' => Trainee::class,
-    ];
-
     /**
      * The intakes that belong to the User
      *
@@ -98,5 +100,55 @@ class User extends Authenticatable implements FilamentUser
     public function intakes(): BelongsToMany
     {
         return $this->belongsToMany(Intake::class);
+    }
+
+    /**
+     * Get all of the bookings for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get the bloodtype that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function bloodtype(): BelongsTo
+    {
+        return $this->belongsTo(BloodType::class);
+    }
+
+    /**
+     * Get the gender that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function gender(): BelongsTo
+    {
+        return $this->belongsTo(Gender::class);
+    }
+
+    /**
+     * Get the quota that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function quota(): BelongsTo
+    {
+        return $this->belongsTo(Quota::class);
+    }
+
+    /**
+     * Get the religion that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function religion(): BelongsTo
+    {
+        return $this->belongsTo(Religion::class);
     }
 }

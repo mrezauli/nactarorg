@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AdminPolicy
@@ -24,9 +25,10 @@ class AdminPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Admin $admin)
     {
         return $user->can('view_admin');
     }
@@ -46,9 +48,10 @@ class AdminPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user)
+    public function update(User $user, Admin $admin)
     {
         return $user->can('update_admin');
     }
@@ -57,9 +60,10 @@ class AdminPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user)
+    public function delete(User $user, Admin $admin)
     {
         return $user->can('delete_admin');
     }
@@ -79,9 +83,10 @@ class AdminPolicy
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Admin $admin)
     {
         return $user->can('force_delete_admin');
     }
@@ -101,9 +106,10 @@ class AdminPolicy
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user)
+    public function restore(User $user, Admin $admin)
     {
         return $user->can('restore_admin');
     }
@@ -123,9 +129,10 @@ class AdminPolicy
      * Determine whether the user can bulk restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user)
+    public function replicate(User $user, Admin $admin)
     {
         return $user->can('replicate_admin');
     }

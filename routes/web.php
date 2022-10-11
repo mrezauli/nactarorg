@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\AdditionalInfo;
 use App\Http\Livewire\Modal;
 use App\Http\Livewire\ViewIntake;
 use App\Http\Livewire\ListIntakes;
@@ -37,4 +38,5 @@ Route::middleware([
     Route::get('/list-intakes-of-user', ListIntakesOfUser::class)->name('list-intakes-of-user');
     Route::get('/view-intake/{intake}', ViewIntake::class)->name('view-intake');
     Route::get('/enrolled-intake/{intake}', EnrolledIntake::class)->name('enrolled-intake');
+    Route::get('/additional-info', AdditionalInfo::class)->name('additional-info');
 });

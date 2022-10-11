@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EmployeePolicy
@@ -24,9 +25,10 @@ class EmployeePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Employee $employee)
     {
         return $user->can('view_employee');
     }
@@ -46,9 +48,10 @@ class EmployeePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user)
+    public function update(User $user, Employee $employee)
     {
         return $user->can('update_employee');
     }
@@ -57,9 +60,10 @@ class EmployeePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user)
+    public function delete(User $user, Employee $employee)
     {
         return $user->can('delete_employee');
     }
@@ -79,9 +83,10 @@ class EmployeePolicy
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Employee $employee)
     {
         return $user->can('force_delete_employee');
     }
@@ -101,9 +106,10 @@ class EmployeePolicy
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user)
+    public function restore(User $user, Employee $employee)
     {
         return $user->can('restore_employee');
     }
@@ -123,9 +129,10 @@ class EmployeePolicy
      * Determine whether the user can bulk restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user)
+    public function replicate(User $user, Employee $employee)
     {
         return $user->can('replicate_employee');
     }

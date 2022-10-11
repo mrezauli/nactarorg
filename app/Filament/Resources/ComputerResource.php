@@ -59,7 +59,7 @@ class ComputerResource extends Resource
                 Forms\Components\TextInput::make('ram')
                     ->required()
                     ->maxLength(50),
-                Forms\Components\TextInput::make('hdd')
+                Forms\Components\TextInput::make('storage')
                     ->required()
                     ->maxLength(50),
                 Forms\Components\TextInput::make('sale')
@@ -82,7 +82,7 @@ class ComputerResource extends Resource
                 Tables\Columns\TextColumn::make('model'),
                 Tables\Columns\TextColumn::make('cpu'),
                 Tables\Columns\TextColumn::make('ram'),
-                Tables\Columns\TextColumn::make('hdd'),
+                Tables\Columns\TextColumn::make('storage'),
                 Tables\Columns\TextColumn::make('sale'),
                 Tables\Columns\TextColumn::make('number'),
                 Tables\Columns\TextColumn::make('warranty')

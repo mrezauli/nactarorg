@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('model', 50);
             $table->string('cpu', 50);
             $table->string('ram', 50);
-            $table->string('hdd', 50);
+            $table->string('storage', 50);
             $table->string('sale', 50);
             $table->string('sku', 50);
             $table->integer('number');

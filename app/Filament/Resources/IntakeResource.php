@@ -14,8 +14,7 @@ use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\IntakeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\IntakeResource\RelationManagers;
-use App\Filament\Resources\IntakeResource\RelationManagers\TraineesRelationManager;
+use App\Filament\Resources\IntakeResource\RelationManagers\UsersRelationManager;
 
 class IntakeResource extends Resource
 {
@@ -47,9 +46,23 @@ class IntakeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('batch.serial'),
-                Tables\Columns\TextColumn::make('course.name'),
-                Tables\Columns\TextColumn::make('code'),
+                Tables\Columns\Layout\Stack::make([
+                    Tables\Columns\TextColumn::make('batch.serial'),
+                    Tables\Columns\TextColumn::make('course.name'),
+                    Tables\Columns\TextColumn::make('code'),
+                ])->space(),
+                Tables\Columns\Layout\Panel::make([
+                    Tables\Columns\Layout\Stack::make([
+                        Tables\Columns\TextColumn::make('batch.serial'),
+                        Tables\Columns\TextColumn::make('course.name'),
+                        Tables\Columns\TextColumn::make('code'),
+                    ])->space(),
+                ])->collapsible(),
+            ])
+            ->contentGrid([
+                'default' => 1,
+                'md' => 2,
+                'xl' => 3,
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -68,7 +81,7 @@ class IntakeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            TraineesRelationManager::class
+            UsersRelationManager::class
         ];
     }
 

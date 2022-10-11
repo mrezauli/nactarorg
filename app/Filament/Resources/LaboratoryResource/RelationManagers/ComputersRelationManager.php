@@ -42,7 +42,7 @@ class ComputersRelationManager extends RelationManager
                 Forms\Components\TextInput::make('ram')
                     ->required()
                     ->maxLength(50),
-                Forms\Components\TextInput::make('hdd')
+                Forms\Components\TextInput::make('Storage')
                     ->required()
                     ->maxLength(50),
                 Forms\Components\TextInput::make('sale')
@@ -67,7 +67,7 @@ class ComputersRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('model'),
                 Tables\Columns\TextColumn::make('cpu'),
                 Tables\Columns\TextColumn::make('ram'),
-                Tables\Columns\TextColumn::make('hdd'),
+                Tables\Columns\TextColumn::make('Storage'),
                 Tables\Columns\TextColumn::make('sale'),
                 Tables\Columns\TextColumn::make('number'),
                 Tables\Columns\TextColumn::make('warranty')
@@ -76,8 +76,7 @@ class ComputersRelationManager extends RelationManager
             ->filters([
                 Tables\Filters\TrashedFilter::make()
             ])
-            ->headerActions([
-            ])
+            ->headerActions([])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),

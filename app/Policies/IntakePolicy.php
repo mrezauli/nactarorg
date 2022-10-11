@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Intake;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class IntakePolicy
@@ -24,9 +25,10 @@ class IntakePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user)
+    public function view(User $user, Intake $intake)
     {
         return $user->can('view_intake');
     }
@@ -46,9 +48,10 @@ class IntakePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user)
+    public function update(User $user, Intake $intake)
     {
         return $user->can('update_intake');
     }
@@ -57,9 +60,10 @@ class IntakePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user)
+    public function delete(User $user, Intake $intake)
     {
         return $user->can('delete_intake');
     }
@@ -79,9 +83,10 @@ class IntakePolicy
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user)
+    public function forceDelete(User $user, Intake $intake)
     {
         return $user->can('force_delete_intake');
     }
@@ -101,9 +106,10 @@ class IntakePolicy
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user)
+    public function restore(User $user, Intake $intake)
     {
         return $user->can('restore_intake');
     }
@@ -123,9 +129,10 @@ class IntakePolicy
      * Determine whether the user can bulk restore.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Intake  $intake
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user)
+    public function replicate(User $user, Intake $intake)
     {
         return $user->can('replicate_intake');
     }

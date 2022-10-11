@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Wildside\Userstamps\Userstamps;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -37,13 +38,12 @@ class Intake extends Model
     }
 
     /**
-     * The trainees that belong to the Intake
+     * The users that belong to the Intake
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function trainees(): BelongsToMany
+    public function users(): BelongsToMany
     {
-        //dd($this->belongsToMany(Trainee::class));
-        return $this->belongsToMany(Trainee::class);
+        return $this->belongsToMany(User::class);
     }
 }
