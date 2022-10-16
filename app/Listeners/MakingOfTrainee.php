@@ -26,7 +26,7 @@ class MakingOfTrainee
      */
     public function handle(MakeThisUserAsTrainee $event)
     {
-        $event->user->update(['type' => 'trainee']);
+        $event->user->update(['type' => 'App\Models\Trainee']);
 
         return null;
     }
