@@ -7,11 +7,12 @@ use App\Models\Booking;
 use App\Models\Trainee;
 use Parental\HasChildren;
 use Laravel\Sanctum\HasApiTokens;
-use Wildside\Userstamps\Userstamps;
+use Spatie\MediaLibrary\HasMedia;
 use Laravel\Jetstream\HasProfilePhoto;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -20,7 +21,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasMedia
 {
     use HasApiTokens;
     use SoftDeletes;
@@ -30,6 +31,7 @@ class User extends Authenticatable implements FilamentUser
     use TwoFactorAuthenticatable;
     use HasChildren;
     use HasRoles;
+    use InteractsWithMedia;
 
     public function canAccessFilament(): bool
     {
@@ -119,7 +121,7 @@ class User extends Authenticatable implements FilamentUser
      */
     public function bloodtype(): BelongsTo
     {
-        return $this->belongsTo(BloodType::class);
+        return $this->belongsTo(BloodType::class, 'blood_type_id');
     }
 
     /**

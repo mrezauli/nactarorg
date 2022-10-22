@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Laboratory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignIdFor(Laboratory::class)->nullable();
+            $table->string('photo', 50)->nullable();
+            $table->string('signature', 50)->nullable();
         });
     }
 
