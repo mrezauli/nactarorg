@@ -19,7 +19,6 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
     use Forms\Concerns\InteractsWithForms;
 
     public Trainee $trainee;
-    public $data;
 
     protected function getFormSchema(): array
     {
@@ -51,7 +50,8 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
                 ->relationship('quota', 'name'),
             Select::make('religionId')
                 ->relationship('religion', 'name'),
-            SpatieMediaLibraryFileUpload::make('media'),
+            SpatieMediaLibraryFileUpload::make('photo')->image()->conversion('thumb'),
+            SpatieMediaLibraryFileUpload::make('signature')->image()->conversion('thumb'),
         ];
     }
 
@@ -74,24 +74,8 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
         ]);
     }
 
-    protected function getFormStatePath(): string
-    {
-        return 'data';
-    }
-
     public function save(): void
     {
-        // $this->trainee->name_in_bangla = $this->data['name_in_bangla'];
-        // $this->trainee->name_of_father = $this->data['name_of_father'];
-        // $this->trainee->name_of_father_in_bangla = $this->data['name_of_father_in_bangla'];
-        // $this->trainee->name_of_mother = $this->data['name_of_mother'];
-        // $this->trainee->name_of_mother_in_bangla = $this->data['name_of_mother_in_bangla'];
-        // $this->trainee->date_of_birth = $this->data['date_of_birth'];
-        // $this->trainee->national_id = $this->data['national_id'];
-        // $this->trainee->contact = $this->data['contact'];
-        //$this->trainee->photo = $this->data['photo'];
-        //$this->trainee->save();
-
         $this->trainee->update(
             $this->form->getState(),
         );
