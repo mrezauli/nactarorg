@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Livewire\AdditionalInfo;
-use App\Http\Livewire\Modal;
+use App\Http\Livewire\Attachments;
 use App\Http\Livewire\ViewIntake;
 use App\Http\Livewire\ListIntakes;
 use App\Http\Livewire\EnrolledIntake;
@@ -39,4 +39,5 @@ Route::middleware([
     Route::get('/view-intake/{intake}', ViewIntake::class)->name('view-intake');
     Route::get('/enrolled-intake/{intake}', EnrolledIntake::class)->name('enrolled-intake');
     Route::get('/additional-info', AdditionalInfo::class)->name('additional-info');
+    Route::get('/attachments', Attachments::class)->name('attachments');
 });

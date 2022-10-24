@@ -5,10 +5,7 @@ namespace App\Http\Livewire;
 use Filament\Forms;
 use App\Models\Trainee;
 use Livewire\Component;
-use Illuminate\Support\Str;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
@@ -50,18 +47,6 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
                 ->relationship('quota', 'name'),
             Select::make('religionId')
                 ->relationship('religion', 'name'),
-            SpatieMediaLibraryFileUpload::make('photo')
-                ->image()
-                ->conversion('thumb')
-                ->collection('photo')
-                ->responsiveImages()
-                ->maxFiles(1),
-            SpatieMediaLibraryFileUpload::make('signature')
-                ->image()
-                ->conversion('thumb')
-                ->collection('photo')
-                ->responsiveImages()
-                ->maxFiles(1),
         ];
     }
 
