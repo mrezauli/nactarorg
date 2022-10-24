@@ -50,8 +50,18 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
                 ->relationship('quota', 'name'),
             Select::make('religionId')
                 ->relationship('religion', 'name'),
-            SpatieMediaLibraryFileUpload::make('photo')->image()->conversion('thumb'),
-            SpatieMediaLibraryFileUpload::make('signature')->image()->conversion('thumb'),
+            SpatieMediaLibraryFileUpload::make('photo')
+                ->image()
+                ->conversion('thumb')
+                ->collection('photo')
+                ->responsiveImages()
+                ->maxFiles(1),
+            SpatieMediaLibraryFileUpload::make('signature')
+                ->image()
+                ->conversion('thumb')
+                ->collection('photo')
+                ->responsiveImages()
+                ->maxFiles(1),
         ];
     }
 
