@@ -28,6 +28,18 @@ class Attachments extends Component implements Forms\Contracts\HasForms
                 ->conversion('thumb')
                 ->collection('signature')
                 ->responsiveImages()
+                ->maxFiles(1),
+            SpatieMediaLibraryFileUpload::make('secondary_school_certificate')
+                ->image()
+                ->conversion('thumb')
+                ->collection('secondary_school_certificate')
+                ->responsiveImages()
+                ->maxFiles(1),
+            SpatieMediaLibraryFileUpload::make('higher_secondary_school_certificate')
+                ->image()
+                ->conversion('thumb')
+                ->collection('higher_secondary_school_certificate')
+                ->responsiveImages()
                 ->maxFiles(1)
         ];
     }
@@ -35,6 +47,7 @@ class Attachments extends Component implements Forms\Contracts\HasForms
     public function mount()
     {
         $this->trainee = Trainee::find(Auth::id());
+        $this->form->fill([]);
     }
 
     public function save(): void
