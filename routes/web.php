@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\AdditionalInfo;
+use App\Http\Livewire\Address;
 use App\Http\Livewire\Attachments;
 use App\Http\Livewire\ViewIntake;
 use App\Http\Livewire\ListIntakes;
@@ -40,4 +41,5 @@ Route::middleware([
     Route::get('/enrolled-intake/{intake}', EnrolledIntake::class)->name('enrolled-intake');
     Route::get('/additional-info', AdditionalInfo::class)->name('additional-info');
     Route::get('/attachments', Attachments::class)->name('attachments');
+    Route::get('/address', Address::class)->name('address');
 });

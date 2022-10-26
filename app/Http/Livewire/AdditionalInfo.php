@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class AdditionalInfo extends Component implements Forms\Contracts\HasForms
 {
@@ -33,20 +32,20 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
             DatePicker::make('date_of_birth')
                 ->displayFormat('Y-m-d')
                 ->rules(['required', 'date']),
+            Select::make('genderId')
+                ->relationship('gender', 'name'),
+            Select::make('religionId')
+                ->relationship('religion', 'name'),
+            Select::make('bloodTypeId')
+                ->relationship('bloodtype', 'name'),
             TextInput::make('national_id')
                 ->numeric()
                 ->rules(['required', 'integer']),
             TextInput::make('contact')
                 ->numeric()
                 ->rules(['required', 'integer']),
-            Select::make('bloodTypeId')
-                ->relationship('bloodtype', 'name'),
-            Select::make('genderId')
-                ->relationship('gender', 'name'),
             Select::make('quotaId')
-                ->relationship('quota', 'name'),
-            Select::make('religionId')
-                ->relationship('religion', 'name'),
+                ->relationship('quota', 'name')
         ];
     }
 

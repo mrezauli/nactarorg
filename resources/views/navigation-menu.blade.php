@@ -115,6 +115,10 @@
                                 {{ __('Attachments') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('address') }}">
+                                {{ __('Address') }}
+                            </x-jet-dropdown-link>
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -190,6 +194,10 @@
 
                 <x-jet-responsive-nav-link href="{{ route('attachments') }}"  :active="request()->routeIs('attachments')">
                     {{ __('Attachments') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('address') }}"  :active="request()->routeIs('address')">
+                    {{ __('Address') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
