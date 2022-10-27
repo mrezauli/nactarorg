@@ -26,23 +26,23 @@ class Address extends Component implements Forms\Contracts\HasForms
             TextInput::make('name_of_police_station')
                 ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_post_office')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
             TextInput::make('post_code')
                 ->numeric()
                 ->rules(['required', 'integer']),
-            TextInput::make('ward')
+            TextInput::make('ward_number')
                 ->numeric()
                 ->rules(['required', 'integer']),
             TextInput::make('name_of_union')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_development_circle')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_upazilla')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_district')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_country')
-                ->rules(['required', 'integer', 'max:20']),
+                ->rules(['required', 'string', 'max:20']),
         ];
     }
 
@@ -50,12 +50,23 @@ class Address extends Component implements Forms\Contracts\HasForms
     {
         $this->trainee = Trainee::find(Auth::id());
         $this->form->fill([
-            'name_in_bangla' => $this->trainee->name_in_bangla,
+            'addressee' => $this->trainee->addressee,
+            'address' => $this->trainee->address,
+            'name_of_police_station' => $this->trainee->name_of_police_station,
+            'name_of_post_office' => $this->trainee->name_of_post_office,
+            'post_code' => $this->trainee->post_code,
+            'ward_number' => $this->trainee->ward_number,
+            'name_of_union' => $this->trainee->name_of_union,
+            'name_of_development_circle' => $this->trainee->name_of_development_circle,
+            'name_of_upazilla' => $this->trainee->name_of_upazilla,
+            'name_of_district' => $this->trainee->name_of_district,
+            'name_of_country' => $this->trainee->name_of_country,
         ]);
     }
 
     public function save(): void
     {
+        //dd($this->form->getState());
         $this->trainee->update(
             $this->form->getState(),
         );

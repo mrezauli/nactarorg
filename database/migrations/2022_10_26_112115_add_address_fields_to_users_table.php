@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('address', 100)->nullable();
             $table->string('name_of_police_station', 20)->nullable();
             $table->string('name_of_post_office', 20)->nullable();
-            $table->integer('post_code');
-            $table->integer('ward');
+            $table->integer('post_code')->nullable();
+            $table->integer('ward_number')->nullable();
             $table->string('name_of_union', 20)->nullable();
             $table->string('name_of_development_circle', 20)->nullable();
             $table->string('name_of_upazilla', 20)->nullable();
