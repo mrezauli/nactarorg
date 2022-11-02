@@ -6,9 +6,7 @@ use Filament\Forms;
 use App\Models\Trainee;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\DatePicker;
 
 class Address extends Component implements Forms\Contracts\HasForms
 {
@@ -42,7 +40,7 @@ class Address extends Component implements Forms\Contracts\HasForms
             TextInput::make('name_of_district')
                 ->rules(['required', 'string', 'max:20']),
             TextInput::make('name_of_country')
-                ->rules(['required', 'string', 'max:20']),
+                ->rules(['required', 'string', 'max:20'])
         ];
     }
 
@@ -68,7 +66,7 @@ class Address extends Component implements Forms\Contracts\HasForms
     {
         //dd($this->form->getState());
         $this->trainee->update(
-            $this->form->getState(),
+            $this->form->getState()
         );
 
         session()->flash('flash.banner', 'Saved!');

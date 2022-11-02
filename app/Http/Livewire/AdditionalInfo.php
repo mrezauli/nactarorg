@@ -71,7 +71,7 @@ class AdditionalInfo extends Component implements Forms\Contracts\HasForms
     public function save(): void
     {
         $this->trainee->update(
-            $this->form->getState(),
+            $this->form->getState()
         );
 
         session()->flash('flash.banner', 'Saved!');
