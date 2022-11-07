@@ -57,11 +57,27 @@ class User extends Authenticatable implements FilamentUser, HasMedia
         'name',
         'email',
         'password',
-        'contact',
-        'type',
         'remember_token',
-        'laboratory_id',
-        'name_in_bangla'
+        'type',
+        'contact',
+        'name_in_bangla',
+        'name_of_father',
+        'name_of_father_in_bangla',
+        'name_of_mother',
+        'name_of_mother_in_bangla',
+        'date_of_birth',
+        'national_id',
+        'addressee',
+        'address',
+        'name_of_police_station',
+        'name_of_post_office',
+        'post_code',
+        'ward_number',
+        'name_of_union',
+        'name_of_development_circle',
+        'name_of_upazilla',
+        'name_of_district',
+        'name_of_country'
     ];
 
     /**
