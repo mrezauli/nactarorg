@@ -19,7 +19,9 @@ class BloodTypeResource extends Resource
 {
     protected static ?string $model = BloodType::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = 'Trainee Details';
+
+    protected static ?string $navigationIcon = 'heroicon-o-beaker';
 
     public static function form(Form $form): Form
     {

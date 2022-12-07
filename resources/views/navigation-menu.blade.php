@@ -22,6 +22,9 @@
                     <x-jet-nav-link href="{{ route('list-intakes-of-user') }}" :active="request()->routeIs('list-intakes-of-user')">
                         {{ __('List Intakes of User') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('list-booked-rooms-of-user') }}" :active="request()->routeIs('list-booked-rooms-of-user')">
+                        {{ __('List Booked Rooms of User') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -164,6 +167,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('list-intakes-of-user') }}" :active="request()->routeIs('list-intakes-of-user')">
                 {{ __('List Intakes of User') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('list-booked-rooms-of-user') }}" :active="request()->routeIs('list-booked-rooms-of-user')">
+                {{ __('List Booked Rooms of User') }}
             </x-jet-responsive-nav-link>
         </div>
 

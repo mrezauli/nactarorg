@@ -18,8 +18,10 @@ use App\Filament\Resources\QuotaResource\RelationManagers;
 class QuotaResource extends Resource
 {
     protected static ?string $model = Quota::class;
+    
+    protected static ?string $navigationGroup = 'Trainee Details';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
 
     public static function form(Form $form): Form
     {

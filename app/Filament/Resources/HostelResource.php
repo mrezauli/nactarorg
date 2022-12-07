@@ -24,7 +24,7 @@ class HostelResource extends Resource
 
     protected static ?string $navigationGroup = 'Hostel';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-home';
 
     public static function form(Form $form): Form
     {

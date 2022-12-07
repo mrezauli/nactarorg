@@ -9,12 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ViewIntake extends Component
 {
-    public Intake $intake;
+    public $intake;
+    public $usersCountOfThisIntake;
     public User $user;
 
-    public function mount()
+    public function mount(Intake $intake)
     {
         $this->user = Auth::user();
+        $this->usersCountOfThisIntake = $intake->users->count();
+        $this->intake = $intake;
     }
 
     public function enroll()

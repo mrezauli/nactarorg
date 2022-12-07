@@ -2,16 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EmployeeResource\Pages;
-use App\Filament\Resources\EmployeeResource\RelationManagers;
-use App\Models\Employee;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Employee;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\EmployeeResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EmployeeResource extends Resource
@@ -26,6 +25,8 @@ class EmployeeResource extends Resource
     {
         return $form
             ->schema([
+                Select::make('roles')->relationship('roles', 'name')
+                    ->multiple(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)

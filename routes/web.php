@@ -9,6 +9,7 @@ use App\Http\Livewire\EnrolledIntake;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ListIntakesOfUser;
 use App\Http\Livewire\EmployeeRegistration;
+use App\Http\Livewire\ListBookedRoom;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/list-intakes', ListIntakes::class)->name('list-intakes');
     Route::get('/list-intakes-of-user', ListIntakesOfUser::class)->name('list-intakes-of-user');
+    Route::get('/list-booked-rooms-of-user', ListBookedRoom::class)->name('list-booked-rooms-of-user');
     Route::get('/view-intake/{intake}', ViewIntake::class)->name('view-intake');
     Route::get('/enrolled-intake/{intake}', EnrolledIntake::class)->name('enrolled-intake');
     Route::get('/additional-info', AdditionalInfo::class)->name('additional-info');

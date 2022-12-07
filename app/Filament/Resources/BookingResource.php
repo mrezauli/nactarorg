@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BookingResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BookingResource\RelationManagers;
+use App\Filament\Resources\BookingResource\RelationManagers\TraineeRelationManager;
 
 class BookingResource extends Resource
 {
@@ -22,7 +23,7 @@ class BookingResource extends Resource
 
     protected static ?string $navigationGroup = 'Hostel';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
     {
@@ -59,7 +60,7 @@ class BookingResource extends Resource
                 Tables\Columns\TextColumn::make('time_to')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('additional_information'),
-                Tables\Columns\TextColumn::make('user.id'),
+                Tables\Columns\TextColumn::make('trainee.name'),
                 Tables\Columns\TextColumn::make('room.id'),
                 Tables\Columns\TextColumn::make('amount'),
             ])
@@ -80,7 +81,7 @@ class BookingResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TraineeRelationManager::class
         ];
     }
 

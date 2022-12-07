@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "althinect/filament-spatie-roles-permissions": "^1.0",
         "awcodes/filament-versions": "^1.0",
         "bezhansalleh/filament-shield": "^2.1",
         "calebporzio/parental": "^1.3",

@@ -19,7 +19,9 @@ class GenderResource extends Resource
 {
     protected static ?string $model = Gender::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = 'Trainee Details';
+
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
 
     public static function form(Form $form): Form
     {
