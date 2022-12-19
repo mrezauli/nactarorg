@@ -13,7 +13,7 @@ class Course extends Model
     use HasFactory, SoftDeletes;
     use Userstamps;
 
-    protected $fillable = ['code', 'slug', 'name'];
+    protected $fillable = ['code', 'slug', 'name', 'details'];
 
     /**
      * Get all of the intakes for the Batch

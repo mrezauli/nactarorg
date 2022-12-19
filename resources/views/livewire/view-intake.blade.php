@@ -18,6 +18,10 @@
                         {{ $intake->batch->serial }}, {{ $intake->course->name }}
                     </div>
 
+
+                        {!! html_entity_decode($intake->course->details) !!}
+                    
+
                     <div class="mt-6 text-gray-500">
                         Already Enrolled Trainee: {{ $usersCountOfThisIntake }}
                     </div>

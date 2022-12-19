@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Hidden;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Filters\TrashedFilter;
 use App\Filament\Resources\CourseResource\Pages;
@@ -38,6 +39,7 @@ class CourseResource extends Resource
                 Forms\Components\TextInput::make('code')
                     ->required()
                     ->numeric(),
+                RichEditor::make('details')
             ]);
     }
 
