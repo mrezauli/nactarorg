@@ -13,4 +13,5 @@ class LaboratoriesController extends Controller
      * Fully-qualified model class name
      */
     protected $model = Laboratory::class; // or "App\Models\Laboratory"
+
 }
